@@ -58,7 +58,7 @@ export default function SignInPage() {
           <div className="h-12 w-12 rounded-lg bg-primary flex items-center justify-center">
             <TrendingUp size={24} className="text-primary-foreground" />
           </div>
-          <h1 className="ml-3 text-2xl font-bold">Vibe Tracker</h1>
+          <h1 className="ml-3 text-2xl font-bold">Portfolio Tracker</h1>
         </div>
 
         <Card>

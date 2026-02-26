@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -84,6 +84,12 @@ export default function DashboardLayout({ children, activeTab = 'dashboard' }: D
     },
   ];
 
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/auth/signin');
+    }
+  }, [user, loading, router]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -93,7 +99,6 @@ export default function DashboardLayout({ children, activeTab = 'dashboard' }: D
   }
 
   if (!user) {
-    router.push('/auth/signin');
     return null;
   }
 
@@ -109,7 +114,7 @@ export default function DashboardLayout({ children, activeTab = 'dashboard' }: D
                 <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                   <TrendingUp size={16} className="text-primary-foreground" />
                 </div>
-                <span className="text-lg font-semibold">Vibe Tracker</span>
+                <span className="text-lg font-semibold">Portfolio Tracker</span>
               </Link>
             </div>
 
